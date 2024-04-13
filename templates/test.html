@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Detail</title>
+</head>
+<body>
+    <section id="home" class="video-section js-height-full">
+        <div class="overlay"></div>
+        <div class="home-text-wrapper relative container">
+            <div class="home-message">
+                <p>Learning Management System</p>
+                <small>Edulogy is the ideal choice for your organization, your business and your online education system. Create your online course now with unlimited page templates, color options, and menu features.</small>
+                <div class="btn-wrapper">
+                    <div class="text-center">
+                        <a href="#" class="btn btn-primary wow slideInLeft">Read More</a> &nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-default wow slideInRight">Buy Now</a>
+                    </div>
+                </div><!-- end row -->
+            </div>
+        </div>
+        <div class="slider-bottom">
+            <span>Explore <i class="fa fa-angle-down"></i></span>
+        </div>
+    </section>
+    {% for n in student %}
+        <h1>Student Detail</h1>
+        <p>Name: {{ n.name }}</p>
+        <p>Admission Number: {{ n.admission_number }}</p>
+        <p>Address: {{ n.address }}</p>
+        <p>Date of Birth: {{ n.DOB}}</p>
+    
+    
+    
+    {% endfor %}
+    
+
+    <h2>Results</h2>
+    {% for r in results %}
+        <p>Subject: {{ r.subject }}</p>
+        <p>Test Scores: {{ r.test_scores }}</p>
+        <p>Exam Scores: {{ r.exam_scores }}</p>
+        <p>Total Scores: {{ r.total_scores }}</p>
+        <p>Grade: {{ r.grade }}</p>
+    {% endfor %}
+
+    {% for n in class %}
+        <h1>Class Detail</h1>
+        <p>Name: {{ n.name }}</p>
+        <p>Teacher: {{ n.teacher }}</p>
+        <p>student: {{ n.students }}</p>
+    {% endfor %}
+
+    {% for n in teacher %}
+        {{ n }}
+    {% endfor %}
+
+    <h1>{{ class_obj.name }}</h1>
+    <h2>Students</h2>
+    <ul>
+    {% for student in class_obj.students.all %}
+        <li>{{ student.name }}</li>
+    {% empty %}
+        <li>No students in this class.</li>
+    {% endfor %}
+    </ul>
+    
+</body>
+</html>
